@@ -1,0 +1,47 @@
+function drawEnd() {
+  // Background colour for the home screen
+  background(180, 225, 220); // soft teal background
+  imageMode(CENTER);
+  image(allimg[4], width / 2, height / 2, width, height); // recipe background image
+
+  // ---- Title text ----
+  fill(30, 50, 60);
+  textSize(40);
+  textAlign(CENTER, CENTER);
+  text("Congratulations! You made:", width / 2, 280);
+  text("Sourdough Bread: " + bread, width / 2, 350);
+  text("Money Earned: $" + money, width / 2, 420);
+
+  const homeBtn = {
+    x: width / 3,
+    y: 570,
+    w: 340,
+    h: 100,
+    label: "Make more bread",
+  };
+
+  const sleepBtn = {
+    x: width - width / 3,
+    y: 570,
+    w: 340,
+    h: 100,
+    label: "Go to sleep",
+  };
+
+  // Draw all buttons
+  drawButton(homeBtn);
+  drawButton(sleepBtn);
+}
+
+function endMousePressed() {
+  const homeBtn = { x: width / 3, y: 570, w: 340, h: 100 };
+  const sleepBtn = { x: width - width / 3, y: 570, w: 340, h: 100 };
+
+  if (isHover(homeBtn)) {
+    currentScreen = "home";
+  } else if (isHover(sleepBtn)) {
+    wbClearBowl();
+    currentScreen = "sleep";
+    nightvid.play();
+  }
+}
