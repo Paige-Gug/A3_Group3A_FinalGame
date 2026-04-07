@@ -22,17 +22,12 @@
 // Game state variables
 let currentScreen = "splash"; // "home" | "pantry" | "workbench" | "oven" | "recipe"
 let bread = 0; // game state variable to track how many breads the player has (starts at 0)
-let energy = 90; // game state variable to track the player's energy (starts at 90)
+let energy = 90; // game state variable to track the player's energy (starts at 95)
 let day = 1; // game state variable to track the current day (starts at 1)
 let money = 10;
 let game = false;
+let gameday = 10800; // timer for the day, starts at 10800 (3 minutes) and counts down to 0, when it hits 0, the day ends and player goes to sleep screen
 let daytimer = 250; // timer to show the day 1 image for a few seconds before showing the home screen
-
-let currentBreadType = "plain";
-
-//NEW
-let dailyOrders = [];
-let recipeNames = ["Plain", "Tomato", "Blueberry", "Apple"];
 
 // Design
 let allimg = []; // global array to store all loaded images (populated in preload())
@@ -42,15 +37,23 @@ let video;
 let openday;
 let nightvid;
 let playing = false; // track if the intro video is currently playing
-let videoFinished = false; // track if the intro video has finished playing
+let videoFinished = true; // track if the intro video has finished playing
 let ingredientsDone = false; // track if player has collected all ingredients (starts at false, becomes true when they do) --- IGNORE ---
 
+// Ingredient counters (start at 0, increase when player clicks on ingredient in pantry)
+let flourCounter = 0;
+let waterCounter = 0;
+let starterCounter = 0;
+let saltCounter = 0;
 let appleCounter = 0;
 let blueberryCounter = 0;
 let cinnamonCounter = 0;
 let sugarCounter = 0;
 let tomatoCounter = 0;
 let recipePage = 0;
+let currentBreadType = "plain";
+let dailyOrders = [];
+let recipeNames = ["Plain", "Tomato", "Blueberry", "Apple"];
 const LAST_RECIPE_PAGE = 3;
 let recipeClicked = false;
 
@@ -65,12 +68,6 @@ let work = false;
 let ovn = false;
 let shop = false;
 let eng = false;
-
-// Ingredient counters (start at 0, increase when player clicks on ingredient in pantry)
-let flourCounter = 0;
-let waterCounter = 0;
-let starterCounter = 0;
-let saltCounter = 0;
 
 // Sound effects
 let ambiance;
@@ -93,7 +90,7 @@ let goldenoven = false;
 
 function preload() {
   // Load all images
-  for (let i = 0; i < 63; i++) {
+  for (let i = 0; i < 66; i++) {
     let name = loadImage(`libraries/assets/images/${i}.png`);
     allimg.push(name);
   }

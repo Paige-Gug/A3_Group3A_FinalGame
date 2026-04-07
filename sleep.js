@@ -9,30 +9,36 @@
 // ------------------------------
 // drawSleep() is called from main.js
 // only when currentScreen === "sleep"
-let sleepTimer = 400; // timer to show the sleep screen for a few seconds before going back to home
+let sleepTimer = 350; // timer to show the sleep screen for a few seconds before going back to home
 
 function drawSleep() {
   game = false;
   background(29, 24, 74);
   fill(255);
   textAlign(CENTER);
-  textSize(40);
+  textSize(30);
   imageMode(CENTER);
 
-  if (day >= 10) {
+  if (money >= 400) {
+    textAlign(LEFT);
+    rectMode(CORNER);
     background(29, 24, 74);
-    text("You've reached the final day and", width / 2, height / 2);
-    text(
-      "unfortunately, you didn't make enough money.",
-      width / 2,
-      height / 2 + 60,
-    );
-    text("Work on balance next time!", width / 2, height / 2 + 120);
-  } else if (money >= 400) {
+    image(allimg[64], width / 2, height / 2, width, height);
+    fill(84, 43, 20);
+    rect(40, 40, 640, 170, 20);
+    fill(255, 240, 210);
+    rect(50, 50, 620, 150, 15);
+    fill(84, 43, 20);
+    text("Congratulations! You've earned enough", 75, 75);
+    text("money to get into culinary school.", 75, 115);
+    text("You've mastered the art of balance!", 75, 155);
+  } else if (day >= 10) {
+    textAlign(LEFT);
     background(29, 24, 74);
-    text("Congratulations! You've earned enough", width / 2, height / 2);
-    text("money to get into culinary school.", width / 2, height / 2 + 60);
-    text("You've mastered the art of balance!", width / 2, height / 2 + 120);
+    image(allimg[63], width / 2, height / 2, width, height);
+    text("You've reached the final day and", 75, 75);
+    text("unfortunately, you didn't make enough money.", 75, 115);
+    text("Work on balance next time!", 75, 155);
   } else if (energy > 4 && sleepTimer > 0) {
     image(nightvid, width / 2, height / 2, width, height);
     text("One day closer to culinary school!", width / 2, height / 2);
@@ -59,10 +65,19 @@ function drawSleep() {
       day++;
     }
     energy = int(random(85, 100));
-    sleepTimer = 400;
+    sleepTimer = 350;
     generateOrdersForDay();
     recipePage = 0;
     daytimer = 250;
+    flourCounter = 0;
+    waterCounter = 0;
+    starterCounter = 0;
+    saltCounter = 0;
+    appleCounter = 0;
+    blueberryCounter = 0;
+    cinnamonCounter = 0;
+    sugarCounter = 0;
+    tomatoCounter = 0;
     openday.play();
   }
 }
@@ -70,4 +85,29 @@ function drawSleep() {
 // ------------------------------
 // Mouse input for recipe screen
 // ------------------------------
-function sleepMousePressed() {}
+function sleepMousePressed() {
+  if (day < 10 && money < 400) {
+    nightvid.stop();
+    currentScreen = "home";
+    if (energy <= 4) {
+      day = day + 2;
+    } else {
+      day++;
+    }
+    energy = int(random(85, 100));
+    sleepTimer = 350;
+    generateOrdersForDay();
+    recipePage = 0;
+    daytimer = 250;
+    flourCounter = 0;
+    waterCounter = 0;
+    starterCounter = 0;
+    saltCounter = 0;
+    appleCounter = 0;
+    blueberryCounter = 0;
+    cinnamonCounter = 0;
+    sugarCounter = 0;
+    tomatoCounter = 0;
+    openday.play();
+  }
+}

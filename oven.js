@@ -34,9 +34,18 @@ function drawOven() {
   // ------------------------------
   // Images
   // ------------------------------
-  ovenClosedImg = allimg[12];
-  ovenBakingImg = allimg[32];
-  ovenOpenImg = allimg[2];
+  if (goldenoven) {
+    ovenClosedImg = allimg[46]; // golden closed
+    ovenOpenImg = allimg[47]; // golden open
+
+    // if you don’t have a golden baking image, keep this
+    ovenBakingImg = allimg[46];
+  } else {
+    ovenClosedImg = allimg[12];
+    ovenBakingImg = allimg[32];
+    ovenOpenImg = allimg[2];
+  }
+
   breadImg = allimg[17];
   bakedBreadImg = getFinishedBreadImage();
   burntBreadImg = allimg[43];
@@ -164,6 +173,11 @@ function drawOven() {
   // ------------------------------
   if (breadInOven) {
     bakeTimer++;
+
+    if (!goldenoven) {
+      // only decrease if NOT golden oven
+      energy -= 0.001; // tiny decrease per frame (adjust as needed)
+    }
 
     textSize(30);
     fill(0);
@@ -297,7 +311,9 @@ function ovenMousePressed() {
     showTooEarlyMessage = false;
     breadReadyForEndScreen = false;
 
-    energy -= int(random(1, 4));
+    if (!goldenoven) {
+      energy -= int(random(1, 4));
+    }
     return;
   }
 
@@ -340,9 +356,18 @@ function ovenMousePressed() {
         breadBurnt = true;
       }
 
-      if (ding && !ding.isPlaying()) {
-        ding.setVolume(3);
-        ding.play();
+      if (breadDone) {
+        // play success sound
+        if (ding && !ding.isPlaying()) {
+          ding.setVolume(3);
+          ding.play();
+        }
+      } else if (breadBurnt) {
+        // play burnt sound
+        if (fire_sound && !fire_sound.isPlaying()) {
+          fire_sound.setVolume(3);
+          fire_sound.play();
+        }
       }
 
       breadInOven = false;

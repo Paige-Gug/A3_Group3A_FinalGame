@@ -72,6 +72,7 @@ function instructionsMousePressed() {
     prevScreen = currentScreen;
     currentScreen = "home";
     ambiance.play();
+    ambiance.loop();
     openday.play();
   }
 }
