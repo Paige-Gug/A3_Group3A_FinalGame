@@ -212,6 +212,8 @@ function wbRecipeComplete() {
 
 // ── Main draw ────────────────────────────────────────────────────────────────
 function drawWorkbench() {
+  energy--; // Decrease energy by 1 each frame (60 frames per second, so this is 1 energy per second)
+
   screen = "workbench";
   wbRefreshLevel();
   _wbRebuildIngredients();

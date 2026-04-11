@@ -31,6 +31,8 @@ let maxTemp = 250; // Maximum oven temp
 let selectedTemp = 150; // Current oven temp (default)
 
 function drawOven() {
+  energy--; // Decrease energy by 1 each frame (60 frames per second, so this is 1 energy per second)
+
   // ------------------------------
   // Images
   // ------------------------------
@@ -220,6 +222,7 @@ function drawOven() {
   // ------------------------------
   screen = "oven";
 
+  // Tutorial pop-up
   if (ovn == false) {
     tut = "Once the dough is ";
     tut2 = "ready, set the temperature ";

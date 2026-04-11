@@ -22,11 +22,10 @@
 // Game state variables
 let currentScreen = "splash"; // "home" | "pantry" | "workbench" | "oven" | "recipe"
 let bread = 0; // game state variable to track how many breads the player has (starts at 0)
-let energy = 90; // game state variable to track the player's energy (starts at 95)
+let energy = 10800; // timer for the day, starts at 10800 (3 minutes) and counts down to 0, when it hits 0, the day ends and player goes to sleep screen
 let day = 1; // game state variable to track the current day (starts at 1)
 let money = 10;
 let game = false;
-let gameday = 10800; // timer for the day, starts at 10800 (3 minutes) and counts down to 0, when it hits 0, the day ends and player goes to sleep screen
 let daytimer = 250; // timer to show the day 1 image for a few seconds before showing the home screen
 
 // Design
@@ -66,7 +65,7 @@ let recp = false;
 let pan = false;
 let work = false;
 let ovn = false;
-let shop = false;
+let shp = false;
 let eng = false;
 
 // Sound effects
@@ -156,7 +155,7 @@ function getRecipeImageIndex(recipeIndex) {
 // This is where you usually set canvas size and initial settings.
 function setup() {
   createCanvas(1344, 756);
-  energy = int(random(70, 98)); // start with random energy between 70 and 98
+  energy = int(random(10000, 10800)); // start with ~3 minutes (10800 frames) of energy
   // Sets a default font for all text() calls
   // (This can be changed later per-screen if you want.)
   fill(84, 43, 20);
@@ -216,7 +215,7 @@ function draw() {
     drawNavbar();
   }
 
-  if (energy <= 4 || money >= 400) {
+  if (energy <= 3 || money >= 400) {
     currentScreen = "sleep";
   }
 }

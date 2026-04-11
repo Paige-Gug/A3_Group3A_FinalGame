@@ -47,6 +47,11 @@ function popupMousePressed() {
     currentScreen = "oven";
   }
 
+  if (isHover(exitBtn) && prevScreen == "shop" && shp == false) {
+    shp = true; // Mark the shop tutorial as completed
+    currentScreen = "shop";
+  }
+
   if (isHover(exitBtn) && prevScreen == "home" && eng == false) {
     eng = true; // Mark the energy tutorial as completed
     currentScreen = "home";

@@ -19,6 +19,8 @@ function getLastUnlockedRecipePage() {
 }
 
 function drawRecipe() {
+  energy--; // Decrease energy by 1 each frame (60 frames per second, so this is 1 energy per second)
+
   background(235, 223, 226);
 
   let lastUnlockedRecipePage = getLastUnlockedRecipePage();

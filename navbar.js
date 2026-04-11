@@ -31,14 +31,14 @@ function drawNavbar() {
   noFill();
   rect(155, 30, 300, 20, 20); // Border for energy bar
 
-  if (energy < 30) {
+  if (energy < 3600) {
     fill(255, 0, 0); // Red color for low energy
-  } else if (energy < 60) {
+  } else if (energy < 7200) {
     fill(255, 212, 23); // Yellow color for medium energy
   } else {
     fill(27, 158, 22); // Green color for high energy
   }
-  rect(155, 30, energy * 3, 20, 20);
+  rect(155, 30, energy / 36, 20, 20);
 
   // Money earned
   noFill();

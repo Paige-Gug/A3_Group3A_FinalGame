@@ -11,7 +11,12 @@
 // drawHome() is called from main.js only when:
 // currentScreen === "home"
 
+let shopDayTwoGlowFrames = 0;
+let shopDayTwoGlowTriggered = false;
+
 function drawHome() {
+  energy--; // Decrease energy by 1 each frame (60 frames per second, so this is 1 energy per second)
+
   imageMode(CORNER);
 
   if (daytimer > 0) {
@@ -73,6 +78,14 @@ function drawHome() {
       label: "",
     };
 
+    if (day === 2 && !shopDayTwoGlowTriggered) {
+      shopDayTwoGlowFrames = 90;
+      shopDayTwoGlowTriggered = true;
+    } else if (day !== 2 && shopDayTwoGlowTriggered) {
+      shopDayTwoGlowTriggered = false;
+      shopDayTwoGlowFrames = 0;
+    }
+
     // Draw all buttons
     drawButton(pantryBtn);
     drawButton(workBtn);
@@ -80,6 +93,19 @@ function drawHome() {
 
     if (day >= 2) {
       drawButton(shopBtn);
+
+      if (day === 2 && shopDayTwoGlowFrames > 0) {
+        // Brief pulse to highlight that the shop has just become available.
+        let radius = shopBtn.w * 3;
+        let t = 140;
+        for (let r = 0; r < radius; r++) {
+          fill(202, 227, 235, t);
+          rect(shopBtn.x - 15, shopBtn.y + 15, r, r, 20);
+          t--;
+        }
+        shopDayTwoGlowFrames--;
+      }
+
       image(allimg[57], 25, height - 150, 125, 125); // shop icon
     }
 
@@ -234,7 +260,7 @@ function drawButton({ x, y, w, h, label }, disabled = false) {
     fill(200, 200, 200, label ? 255 : 0); // grey for disabled buttons
     drawingContext.shadowBlur = 0; // no shadow for disabled
   } else if (hover) {
-    fill(202, 227, 235, label ? 255 : 0); // warm coral on hover, visible for navbar buttons
+    fill(202, 227, 235, label ? 255 : 0); // light blue on hover, visible for navbar buttons
 
     // Shadow settings (only when hovered)
     drawingContext.shadowBlur = 20;

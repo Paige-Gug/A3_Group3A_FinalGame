@@ -64,7 +64,7 @@ function drawSleep() {
     } else {
       day++;
     }
-    energy = int(random(85, 100));
+    energy = energy = int(random(10000, 10800));
     sleepTimer = 350;
     generateOrdersForDay();
     recipePage = 0;
@@ -94,7 +94,7 @@ function sleepMousePressed() {
     } else {
       day++;
     }
-    energy = int(random(85, 100));
+    energy = int(random(10000, 10800));
     sleepTimer = 350;
     generateOrdersForDay();
     recipePage = 0;
