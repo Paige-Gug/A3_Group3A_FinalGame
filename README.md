@@ -58,4 +58,4 @@ We would like to credit the following for sound effects, although pixabay does n
 
 ## GenAI
 
-The code was written by Paige Gugeler, Tristan Whalen, Annika Zamora and Andrea Sobiesiak but they used GenAI to help refine complex code and create comments.
+The code was written by Paige Gugeler, Tristan Whalen, Annika Zamora and Andrea Sobiesiak, but they used GenAI to help refine complex code and create comments.
