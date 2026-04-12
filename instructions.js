@@ -31,14 +31,16 @@ function drawInstructions() {
 
   // Goals
   text("Your culinary school", 240, 200);
-  text("application is due in", 240, 235);
-  text("10 days. You need", 240, 270);
-  text("to raise $400 in ", 240, 305);
-  text("order to submit it.", 240, 340);
-  text("Every action costs energy.", 240, 395);
-  text("You'll need to be strategic ", 240, 430);
-  text("about what you click ", 240, 465);
-  text("and how much.", 240, 500);
+  text("application is due in 10 days.", 240, 235);
+  text("You need to raise $400 in", 240, 270);
+  text("order to submit it.", 240, 305);
+  text("Every day and action costs", 240, 340);
+  text("energy. You'll need to be", 240, 465);
+  text("strategic about what you click ", 240, 500);
+  text("and how much. If you", 240, 535);
+  text("run out of energy before", 240, 570);
+  text("you go to sleep, you will", 240, 605);
+  text("skip a day.", 240, 640);
 
   // Gameplay
   text("Click around to find", 760, 200);
