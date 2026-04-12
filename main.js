@@ -81,6 +81,7 @@ let Water;
 let Starter;
 let Salt;
 let Kneading;
+let fire_sound;
 
 // Tool upgrades
 let pin = false;
@@ -111,6 +112,7 @@ function preload() {
   Starter = loadSound("libraries/assets/audio/Starter.mp3");
   Salt = loadSound("libraries/assets/audio/Salt.mp3");
   Kneading = loadSound("libraries/assets/audio/Kneeding_Dough.mp3");
+  fire_sound = loadSound("libraries/assets/audio/fire_sound.mp3");
 
   // Load a custom font before the sketch starts
   font = loadFont("libraries/assets/font/playpen.ttf");
