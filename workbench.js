@@ -641,7 +641,7 @@ function workbenchMousePressed() {
         Kneading.play();
       }
 
-      let energyLoss = floor(random(1, 4));
+      let energyLoss = floor(random(5, 10));
 
       if (pin) {
         energyLoss = max(1, energyLoss - 1);
