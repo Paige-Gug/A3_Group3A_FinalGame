@@ -23,7 +23,7 @@
 let currentScreen = "splash"; // "home" | "pantry" | "workbench" | "oven" | "recipe"
 let bread = 0; // game state variable to track how many breads the player has (starts at 0)
 let energy = 10800; // timer for the day, starts at 10800 (3 minutes) and counts down to 0, when it hits 0, the day ends and player goes to sleep screen
-let day = 2; // game state variable to track the current day (starts at 1)
+let day = 1; // game state variable to track the current day (starts at 1)
 let money = 10;
 let game = false;
 let daytimer = 250; // timer to show the day 1 image for a few seconds before showing the home screen
@@ -36,7 +36,7 @@ let video;
 let openday;
 let nightvid;
 let playing = false; // track if the intro video is currently playing
-let videoFinished = true; // track if the intro video has finished playing
+let videoFinished = false; // track if the intro video has finished playing
 let ingredientsDone = false; // track if player has collected all ingredients (starts at false, becomes true when they do) --- IGNORE ---
 
 // Ingredient counters (start at 0, increase when player clicks on ingredient in pantry)
