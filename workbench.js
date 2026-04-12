@@ -43,9 +43,9 @@ function wbActiveRecipe() {
 }
 
 function wbActiveRecipeName() {
-  if (day >= 5) return "🫐 BLUEBERRY CRUMBLE";
-  if (day >= 2) return "🍅 TOMATO BREAD";
-  return level >= 2 ? "🥛 MILK BREAD" : "🍞 SOURDOUGH";
+  if (day >= 5) return "BLUEBERRY CRUMBLE";
+  if (day >= 2) return "TOMATO BREAD";
+  return level >= 2 ? "MILK BREAD" : "SOURDOUGH";
 }
 
 function wbAllRecipes() {
