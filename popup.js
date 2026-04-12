@@ -32,6 +32,27 @@ function popupMousePressed() {
     currentScreen = "home";
   }
 
+  if (
+    isHover(exitBtn) &&
+    prevScreen == "home" &&
+    lev3 == false &&
+    inst == true &&
+    eng == true
+  ) {
+    lev3 = true; // Mark the energy tutorial as completed
+    currentScreen = "home";
+  }
+
+  if (
+    isHover(exitBtn) &&
+    prevScreen == "workbench" &&
+    lev2 == false &&
+    work == true
+  ) {
+    lev2 = true;
+    currentScreen = "workbench";
+  }
+
   if (isHover(exitBtn) && prevScreen == "home" && inst == false) {
     inst = true; // Mark the recipe tutorial as completed
     currentScreen = "home";

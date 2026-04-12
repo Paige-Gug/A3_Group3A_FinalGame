@@ -269,6 +269,14 @@ function drawWorkbench() {
     prevScreen = currentScreen;
     currentScreen = "popup";
   }
+
+  if (day == 4 && lev2 == false) {
+    tut = "Your assistant quit!";
+    tut2 = "You have to knead the dough";
+    tut3 = "yourself now by dragging it.";
+    prevScreen = currentScreen;
+    currentScreen = "popup";
+  }
 }
 
 // ── Trash-can button ─────────────────────────────────────────────────────────

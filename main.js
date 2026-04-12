@@ -67,6 +67,8 @@ let work = false;
 let ovn = false;
 let shp = false;
 let eng = false;
+let lev2 = false;
+let lev3 = false;
 
 // Sound effects
 let ambiance;

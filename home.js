@@ -196,6 +196,14 @@ function drawHome() {
       prevScreen = currentScreen;
       currentScreen = "popup";
     }
+
+    if (day == 8 && lev3 == false) {
+      tut = "For your last 3 days you need to";
+      tut2 = "fulfill orders! Check the sticky";
+      tut3 = "notes on the left for details.";
+      prevScreen = currentScreen;
+      currentScreen = "popup";
+    }
   }
 }
 
