@@ -144,6 +144,7 @@ function drawPantry() {
     tut = "Click on the ingredients";
     tut2 = "to collect them. Check";
     tut3 = "the recipe for counts!";
+    image(allimg[54], width / 2 - 100, height - 150, 150, 175);
     prevScreen = currentScreen;
     currentScreen = "popup";
   }

@@ -491,13 +491,12 @@ function drawWbBakeButton() {
   rect(btn.x, btn.y, btn.w, btn.h, 10);
 
   imageMode(CENTER);
-  if (allimg[18]) image(allimg[18], btn.x - btn.w / 2 + 30, btn.y, 45, 35);
 
   fill(255);
   noStroke();
-  textSize(14);
+  textSize(25);
   textAlign(CENTER, CENTER);
-  text("BAKE BREAD!", btn.x + 15, btn.y);
+  text("BAKE BREAD!", btn.x, btn.y - 5);
 
   rectMode(CORNER);
   imageMode(CORNER);
