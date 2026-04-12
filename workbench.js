@@ -273,9 +273,9 @@ function drawWorkbench() {
 
 // ── Trash-can button ─────────────────────────────────────────────────────────
 function drawWbTrashButton() {
-  const w = 260;
-  const h = 300;
-  wbTrashBtn = { x: width - 170, y: height - 220, w, h };
+  const w = 300;
+  const h = 350;
+  wbTrashBtn = { x: width - 170, y: height - 270, w, h };
   const hover = isHover(wbTrashBtn);
 
   if (
@@ -324,7 +324,7 @@ function wbTrashBowl() {
   wbContents = {};
   _wbRebuildIngredients();
 
-  const penalty = floor(random(5, 10));
+  const penalty = floor(random(50, 80));
   energy = max(0, energy - penalty);
 
   wbMessage = `Ingredients trashed! Go back to the pantry. (-${penalty} ⚡)`;
