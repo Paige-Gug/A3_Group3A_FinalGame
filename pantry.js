@@ -141,9 +141,9 @@ function drawPantry() {
   screen = "pantry";
 
   if (pan == false) {
-    tut = "Click on the ingredients   ";
-    tut2 = "to collect them.";
-    tut3 = "";
+    tut = "Click on the ingredients";
+    tut2 = "to collect them. Check";
+    tut3 = "the recipe for counts!";
     prevScreen = currentScreen;
     currentScreen = "popup";
   }

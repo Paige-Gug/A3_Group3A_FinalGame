@@ -184,7 +184,6 @@ function drawHome() {
     if (
       eng == false &&
       inst == true &&
-      recp == true &&
       pan == true &&
       work == true &&
       ovn == true
