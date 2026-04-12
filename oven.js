@@ -193,7 +193,7 @@ function drawOven() {
       text("Not done baking!", width / 2 - 30, 115);
     }
 
-    image(bakedBreadImg, width / 2 - 30, ovenY + 35, 220, 140);
+    image(bakedBreadImg, width / 2 - 30, ovenY + 35, 180, 100);
   } else if (breadDone || breadBurnt) {
     if (breadDone) {
       image(bakedBreadImg, width / 2 - 30, ovenY + 5, 220, 140);
