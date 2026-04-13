@@ -257,6 +257,7 @@ function draw() {
   else if (currentScreen === "shop") drawShop();
   else if (currentScreen === "end") drawEnd();
   else if (currentScreen === "sleep") drawSleep();
+  else if (currentScreen === "mix") drawMix();
 
   // Only draw navbar if video has finished playing
   if (videoFinished && game === true) {
@@ -294,6 +295,7 @@ function mousePressed() {
   else if (currentScreen === "shop") shopMousePressed();
   else if (currentScreen === "end") endMousePressed();
   else if (currentScreen === "sleep") sleepMousePressed();
+  else if (currentScreen === "mix") mixMousePressed();
 
   if (!(currentScreen === "home" && daytimer > 0)) {
     navbarMousePressed();
@@ -325,16 +327,19 @@ function keyPressed() {
   else if (currentScreen === "shop") shopKeyPressed();
   else if (currentScreen === "end") endKeyPressed();
   else if (currentScreen === "sleep") sleepKeyPressed();
+  else if (currentScreen === "mix") mixKeyPressed();
 
   navbarKeyPressed();
 }
 
 function mouseDragged() {
   if (currentScreen === "workbench") workbenchMouseDragged();
+  else if (currentScreen === "mix") mixMouseDragged();
 }
 
 function mouseReleased() {
   if (currentScreen === "workbench") workbenchMouseReleased();
+  else if (currentScreen === "mix") mixMouseReleased();
 }
 
 // ------------------------------------------------------------
