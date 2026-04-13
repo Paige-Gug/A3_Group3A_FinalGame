@@ -197,7 +197,7 @@ function drawHome() {
       currentScreen = "popup";
     }
 
-    if (day == 2 && day2 == false) {
+    if (day == 2 && day2 == false && eng == true) {
       tut = "New flavors are available";
       tut2 = "in the recipe book, and the shop";
       tut3 = "is open for business!";

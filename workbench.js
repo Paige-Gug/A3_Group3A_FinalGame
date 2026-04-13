@@ -272,7 +272,7 @@ function drawWorkbench() {
     currentScreen = "popup";
   }
 
-  if (day == 4 && lev2 == false) {
+  if (day == 4 && lev2 == false && work == true) {
     tut = "Your assistant quit!";
     tut2 = "You have to knead the dough";
     tut3 = "yourself now by dragging it.";
