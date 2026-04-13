@@ -20,15 +20,15 @@ This p5.js project known as “Bread and Balance” has been designed as a cozy 
 Interaction Instructions
 Players will notice the homescreen indicates they have the opportunity to view pantry, workbench, and oven functionality.
 
-As the days progress, players are introduced to new game mechanics. On Day 4 (Level 2), a new mouse movement will occur for players to swirl and mix the bread at the workbench rather than just dragging and dropping.
+As the days progress, players are introduced to new game mechanics. On Day 4 (Level 2), a new mouse movement will occur for players to swirl and mix the bread at the workbench rather than just clicking.
 
-Secondly, on Day 8 (Level 3) order fulfillments will appear for players to read, collect, and integrate all ingredients to fulfill each order without the option of going back to the pantry. These new mechanics allow the player to test themselves, and see how quickly they can fulfill these orders to make it to culinary school.
+Secondly, on Day 8 (Level 3) order fulfillments will appear. Players will need to read, collect, and integrate all ingredients to fulfill each order. These new mechanics allow the player to test themselves, and see how quickly they can fulfill these orders to make it to culinary school.
 
 Visual Indicators
-An energy level on the left side on the game screen, as the numerical value will continuously decrease.
-Below that, the player with the options to click the “Home” button transitions back to the homescreen and beside that is the “End Day” button once the player's energy is reduced. On the top right side, the bread count and recipe are shown. These remain throughout each page.
+An energy level on the top left side on the game screen, as the numerical value will continuously decrease.
+Below that, the option to click the “Home” button transitions the player back to the homescreen, and the “End Day” button to go to sleep once the player's energy is reduced. On the top right side, the bread count and recipe are shown. These remain throughout each page.
 
-Throughout the game, more indicators are given to the player to understand how the game functions with a tutorial screen within Day 1 (Level 1) with arrows indicating where players should proceed next. Additionally glowing items are used across the game to continue providing assistance.
+Throughout the game, more indicators are given to the player to understand how the game functions with a tutorial screen within Day 1 (Level 1) with arrows indicating where players should proceed next. Additionally, glowing items and more pop-up hints are used across the game to continue providing assistance.
 
 ---
 
