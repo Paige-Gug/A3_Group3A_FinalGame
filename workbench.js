@@ -334,7 +334,7 @@ function wbTrashBowl() {
   wbContents = {};
   _wbRebuildIngredients();
 
-  const penalty = floor(random(50, 80));
+  const penalty = floor(random(5, 10));
   energy = max(0, energy - penalty);
 
   wbMessage = `Ingredients trashed! Go back to the pantry. (-${penalty} ⚡)`;
@@ -506,7 +506,11 @@ function drawWbBakeButton() {
   noStroke();
   textSize(25);
   textAlign(CENTER, CENTER);
-  text(wbMixed ? "BAKE BREAD!" : "MIX", btn.x, btn.y - 5);
+  text(
+    day >= 4 ? (wbMixed ? "BAKE BREAD!" : "MIX") : "BAKE BREAD!",
+    btn.x,
+    btn.y - 5,
+  );
 
   rectMode(CORNER);
   imageMode(CORNER);
@@ -661,7 +665,7 @@ function workbenchMousePressed() {
         Kneading.play();
       }
 
-      let energyLoss = floor(random(5, 10));
+      let energyLoss = floor(random(50, 80));
 
       if (pin) {
         energyLoss -= 5;
