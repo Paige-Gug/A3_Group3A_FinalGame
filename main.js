@@ -36,7 +36,7 @@ let video;
 let openday;
 let nightvid;
 let playing = false; // track if the intro video is currently playing
-let videoFinished = false; // track if the intro video has finished playing
+let videoFinished = true; // track if the intro video has finished playing
 let ingredientsDone = false; // track if player has collected all ingredients (starts at false, becomes true when they do) --- IGNORE ---
 
 // Ingredient counters (start at 0, increase when player clicks on ingredient in pantry)
@@ -67,8 +67,6 @@ let work = false;
 let ovn = false;
 let shp = false;
 let eng = false;
-let lev2 = false;
-let lev3 = false;
 
 // Sound effects
 let ambiance;
@@ -83,7 +81,6 @@ let Water;
 let Starter;
 let Salt;
 let Kneading;
-let fire_sound;
 
 // Tool upgrades
 let pin = false;
@@ -114,7 +111,6 @@ function preload() {
   Starter = loadSound("libraries/assets/audio/Starter.mp3");
   Salt = loadSound("libraries/assets/audio/Salt.mp3");
   Kneading = loadSound("libraries/assets/audio/Kneeding_Dough.mp3");
-  fire_sound = loadSound("libraries/assets/audio/fire_sound.mp3");
 
   // Load a custom font before the sketch starts
   font = loadFont("libraries/assets/font/playpen.ttf");
@@ -130,15 +126,60 @@ function getAvailableRecipesForDay() {
   }
 }
 
+function generateSingleOrder(excludeRecipeIndex = -1) {
+  let availableRecipes = getAvailableRecipesForDay().filter(
+    (recipeIndex) => recipeIndex !== excludeRecipeIndex,
+  );
+
+  if (availableRecipes.length === 0) {
+    availableRecipes = getAvailableRecipesForDay();
+  }
+
+  let randomIndex = floor(random(availableRecipes.length));
+  return availableRecipes[randomIndex];
+}
+
 function generateOrdersForDay() {
-  let availableRecipes = getAvailableRecipesForDay();
   dailyOrders = [];
 
   for (let i = 0; i < 3; i++) {
-    let randomIndex = floor(random(availableRecipes.length));
-    let recipeIndex = availableRecipes[randomIndex];
-    dailyOrders.push(recipeIndex);
+    dailyOrders.push(generateSingleOrder());
   }
+}
+
+function breadTypeToOrderIndex(breadType) {
+  if (breadType === "plain") return 0;
+  if (breadType === "tomato") return 1;
+  if (breadType === "blueberry") return 2;
+  if (breadType === "apple") return 3;
+  return -1;
+}
+
+function fulfillOneMatchingOrder(breadType) {
+  let bakedRecipeIndex = breadTypeToOrderIndex(breadType);
+
+  if (bakedRecipeIndex === -1) {
+    return false;
+  }
+
+  for (let i = 0; i < dailyOrders.length; i++) {
+    if (dailyOrders[i] === bakedRecipeIndex) {
+      if (breadType === "tomato") {
+        money += 10;
+      } else if (breadType === "apple") {
+        money += 15;
+      } else if (breadType === "blueberry") {
+        money += 15;
+      } else if (breadType === "plain") {
+        money += 5;
+      }
+
+      dailyOrders[i] = generateSingleOrder(bakedRecipeIndex);
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function getRecipeImageIndex(recipeIndex) {

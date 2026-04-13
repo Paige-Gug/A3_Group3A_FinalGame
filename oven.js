@@ -315,7 +315,7 @@ function ovenMousePressed() {
     breadReadyForEndScreen = false;
 
     if (!goldenoven) {
-      energy -= int(random(50, 80));
+      energy -= int(random(5, 10));
     }
     return;
   }

@@ -43,13 +43,13 @@ function wbActiveRecipe() {
 }
 
 function wbActiveRecipeName() {
-  if (day >= 5) return "BLUEBERRY CRUMBLE";
-  if (day >= 2) return "TOMATO BREAD";
-  return level >= 2 ? "MILK BREAD" : "SOURDOUGH";
+  if (day >= 5) return "🫐 BLUEBERRY CRUMBLE";
+  if (day >= 2) return "🍅 TOMATO BREAD";
+  return level >= 2 ? "🥛 MILK BREAD" : "🍞 SOURDOUGH";
 }
 
 function wbAllRecipes() {
-  const recipes = [BREAD_RECIPE, MILK_BREAD_RECIPE];
+  const recipes = [BREAD_RECIPE];
 
   if (day >= 2) {
     recipes.push(TOMATO_BREAD_RECIPE);
@@ -269,21 +269,13 @@ function drawWorkbench() {
     prevScreen = currentScreen;
     currentScreen = "popup";
   }
-
-  if (day == 4 && lev2 == false) {
-    tut = "Your assistant quit!";
-    tut2 = "You have to knead the dough";
-    tut3 = "yourself now by dragging it.";
-    prevScreen = currentScreen;
-    currentScreen = "popup";
-  }
 }
 
 // ── Trash-can button ─────────────────────────────────────────────────────────
 function drawWbTrashButton() {
-  const w = 300;
+  const w = 260;
   const h = 350;
-  wbTrashBtn = { x: width - 170, y: height - 270, w, h };
+  wbTrashBtn = { x: width - 170, y: height - 220, w, h };
   const hover = isHover(wbTrashBtn);
 
   if (
@@ -332,7 +324,7 @@ function wbTrashBowl() {
   wbContents = {};
   _wbRebuildIngredients();
 
-  const penalty = floor(random(50, 80));
+  const penalty = floor(random(5, 10));
   energy = max(0, energy - penalty);
 
   wbMessage = `Ingredients trashed! Go back to the pantry. (-${penalty} ⚡)`;
