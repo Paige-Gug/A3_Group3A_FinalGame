@@ -69,6 +69,7 @@ let shp = false;
 let eng = false;
 let lev2 = false;
 let lev3 = false;
+let day2 = false;
 
 // Sound effects
 let ambiance;

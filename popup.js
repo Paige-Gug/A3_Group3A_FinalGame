@@ -25,21 +25,26 @@ function popupMousePressed() {
   if (
     isHover(exitBtn) &&
     prevScreen == "home" &&
-    eng == false &&
-    inst == true
+    lev3 == false &&
+    inst == true &&
+    eng == true
   ) {
-    eng = true; // Mark the energy tutorial as completed
+    lev3 = true; // Mark the energy tutorial as completed
+    currentScreen = "home";
+  }
+
+  if (isHover(exitBtn) && prevScreen == "home" && day2 == false && day == 2) {
+    day2 = true; // Mark the day 2 tutorial as completed
     currentScreen = "home";
   }
 
   if (
     isHover(exitBtn) &&
     prevScreen == "home" &&
-    lev3 == false &&
-    inst == true &&
-    eng == true
+    eng == false &&
+    inst == true
   ) {
-    lev3 = true; // Mark the energy tutorial as completed
+    eng = true; // Mark the energy tutorial as completed
     currentScreen = "home";
   }
 
