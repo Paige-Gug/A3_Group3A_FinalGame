@@ -193,7 +193,7 @@ function drawOven() {
       text("Not done baking!", width / 2 - 30, 115);
     }
 
-    image(bakedBreadImg, width / 2 - 30, ovenY + 35, 180, 100);
+    image(bakedBreadImg, width / 2 - 30, ovenY + 35, 220, 140);
   } else if (breadDone || breadBurnt) {
     if (breadDone) {
       image(bakedBreadImg, width / 2 - 30, ovenY + 5, 220, 140);
@@ -342,18 +342,20 @@ function ovenMousePressed() {
 
       if (bakeTimer >= bakeDuration && bakeTimer <= bakeDuration + burnWindow) {
         breadDone = true;
-        if (currentBreadType === "tomato") {
-          money += 10;
-          bread += 1;
-        } else if (currentBreadType === "apple") {
-          money += 15;
-          bread += 1;
-        } else if (currentBreadType === "blueberry") {
-          money += 15;
-          bread += 1;
-        } else if (currentBreadType === "plain") {
-          money += 5;
-          bread += 1;
+        bread += 1;
+
+        if (day < 8) {
+          if (currentBreadType === "tomato") {
+            money += 10;
+          } else if (currentBreadType === "apple") {
+            money += 15;
+          } else if (currentBreadType === "blueberry") {
+            money += 15;
+          } else if (currentBreadType === "plain") {
+            money += 5;
+          }
+        } else {
+          fulfillOneMatchingOrder(currentBreadType);
         }
       } else if (bakeTimer > bakeDuration + burnWindow) {
         breadBurnt = true;
